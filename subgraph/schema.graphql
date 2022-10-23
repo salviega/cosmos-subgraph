@@ -1,0 +1,28 @@
+type DataBought @entity {
+  id: ID!
+  itemId: BigInt!
+  nft: String! 
+  tokenId: BigInt!
+  tokenURI: String!
+  price: BigInt!
+  artist: String!
+  taxFee: BigInt!
+  addressTaxFeeToken: String!
+  buyer: String!
+}
+
+type DataOfferd @entity {
+  id: ID!
+  itemId: BigInt!
+  nft: String! 
+  tokenId: BigInt!
+  tokenURI: String!
+  price: BigInt!
+  artist: String!
+  taxFee: BigInt!
+  addressTaxFeeToken: String!
+  seller: String!
+}
+
+
+ 

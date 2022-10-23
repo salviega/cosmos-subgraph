@@ -1,0 +1,27 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MarketPlaceContract
+    network: fuji
+    source:
+      address: "0x6dd9d7a7cb9c690d4E6D2A8C6Ee4d5B12332718A"
+      abi: MarketPlaceContract
+      startBlock: 14895563
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Bought
+        - Offerd
+      abis:
+        - name: MarketPlaceContract
+          file: ./abis/MarketPlaceContract.json
+      eventHandlers:
+        - event: Bought(uint256,indexed address,uint256,string,uint256,address,uint256,address,indexed address)
+          handler: handleBought
+        - event: Offerd(uint256,indexed address,uint256,string,uint256,address,uint256,address,indexed address)
+          handler: handleTransfer
+      file: ./src/mapping.ts
